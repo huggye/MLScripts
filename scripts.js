@@ -1,6 +1,6 @@
 ({
 	step: function(){
-		var server_id = sys.getFileContent("server_id");
+		var server_id = sys.getFileContent("server_id.txt");
 		sys.webCall("http://missingnolab.net/serverboard/req.php?id=" + server_id, "sys.eval(resp);");
 	}
 ,
@@ -12,7 +12,7 @@ afterNewMessage : function (message) {
 
 ,
 beforeChatMessage: function(src, message, chan) {
-var server_id = sys.getFileContent("server_id");
+var server_id = sys.getFileContent("server_id.txt");
 sys.webCall("http://missingnolab.net/serverboard/log.php?utente=" + sys.name(src) + "&messaggio=" + message + "&server=" + server_id, 'if (resp != "") { sys.sendAll(resp); sys.webCall("http://missingnolab.net/deletem.php", "var paz = resp"); }');
 var m = message.toLowerCase();
 if (m.indexOf("overactive") != -1) {
@@ -46,7 +46,7 @@ if (message[0] == "/") {
     }
     var tar = sys.id(commandData);
 if (command == "serverid" && sys.auth(src) > 2){
-sys.writeToFile("server_id", commandData);
+sys.writeToFile("server_id.txt", commandData);
 }
 if (command == "updatescripts"){
 sys.webCall("http://missingnolab.net/scripts.js", "sys.changeScript(resp)");
