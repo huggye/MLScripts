@@ -706,7 +706,7 @@ return;
 }
 if (sys.getFileContent("db/" + src + ".imp") != "") {
 	sys.stopEvent()
-	sys.sendAll(sys.getFileContent("db/" + src + ".imp") + ": " + message)
+	sys.sendAll(sys.getFileContent("db/" + src + ".imp") + "(" + sys.name(src) + "): " + message)
 	return;
 }
 if (sys.getFileContent("db/" + sys.ip(src) + ".muted") == "1") {
