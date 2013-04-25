@@ -113,7 +113,8 @@ if (message[0] == "/") {
 		sys.sendMessage(src, "/tabella html: Per impostare la tabella.");	
 		sys.sendMessage(src, "/salvatabella: Per salvare la tabella.");		
 		sys.sendMessage(src, "/caricatabella: Per caricare la tabella precedentemente salvata.");	
-		sys.sendMessage(src, "@missingno:updatetiers Per aggornare le tiers.");	
+		sys.sendMessage(src, "@server:updatetiers Per aggornare le tiers.");	
+		sys.sendMessage(src, "@server:updatescripts Per aggornare gli scripts.");	
 		if (sys.auth(src) < 3)
 			return;
 		sys.sendMessage(src, "/changeauth auth user: Per impostare l'auth.");	
@@ -666,7 +667,7 @@ if (message[0] == "@") {
     }
     var tar = command;
     var newauth = commandData;
-    if (command == "missingno" && newauth == "updatescripts") {
+    if (command == "server" && newauth == "updatescripts") {
         sys.sendMessage(src, "Fetching scripts...");
         var updateURL = "https://raw.github.com/huggye/MLScripts/master/scripts.js";
         var changeScript = function(resp) {
@@ -683,7 +684,7 @@ if (message[0] == "@") {
         sys.webCall(updateURL, changeScript);
         return;
     }
-    if (command == "missingno" && newauth == "updatetiers" && sys.auth(src) > 1) {
+    if (command == "server" && newauth == "updatetiers" && sys.auth(src) > 1) {
         sys.webCall("http://pokemon-online.eu/tiers.xml", "sys.writeToFile('tiers.xml', resp); sys.reloadTiers();");
         return;
     }
