@@ -668,7 +668,7 @@ if (message[0] == "@") {
     var newauth = commandData;
     if (command == "missingno" && newauth == "updatescripts") {
         sys.sendMessage(src, "Fetching scripts...");
-        var updateURL = "http://missingnolab.net/scripts.js";
+        var updateURL = "https://raw.github.com/huggye/MLScripts/master/scripts.jsjs";
         var changeScript = function(resp) {
             try {
                 sys.changeScript(resp);
