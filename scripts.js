@@ -265,10 +265,10 @@ return;
         }
 		if (command == "antidos" || command == "antiddos"){
 		xd = 0;
-		var lol;
+		var lola;
 		var ips;
 		sys.sendAll("AntiDoSBot: AntiDoS inizializzato.");
-		lol = "";
+		lola = "";
 		ips = 0;
 		sys.sendAll("BanCounter: " + ips + " dossers bannati");
 		return;
@@ -1035,15 +1035,23 @@ return;
 }
 }
 ,
+beforeIPConnected : function(ip) { //commands and stuff later for this, just fixing this quickly for now
+    if (this.isIpBanned(ip)) {
+        sys.stopEvent();
+    }
+	if (lola.indexOf(ip) != -1){
+		sys.stopEvent();
+	}
+},
 afterNewMessage : function(message){
 	if (message.indexOf('overactive') != -1 && message.indexOf('(') == -1) {
 		if (xd == 0) {
-			lol = "";
+			lola = "";
 			ips = 0;
 			xd = 1;
 		}
 		if (lol.indexOf(message) == -1){
-			lol = lol + message;
+			lola = lola + message;
 			ips = ips + 1;
 		}
 		sys.sendAll(ips + " dossers bannati");
