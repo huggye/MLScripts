@@ -1,0 +1,11 @@
+({
+afterChallengeReceived: function(cid, b, c, d){
+	client.acceptChallenge(cid);
+},
+battleFinished: function(battleid, res, winner, loser){
+	client.removeBattleWindow(battleid);
+},
+onPlayerReceived: function(id){
+	print(id + ' - ' + client.name(id));
+},
+})

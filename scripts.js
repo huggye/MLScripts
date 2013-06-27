@@ -263,6 +263,16 @@ return;
             sys.kick(tar);
             return;
         }
+		if (command == "antidos" || command == "antiddos"){
+		xd = 0;
+		var lol;
+		var ips;
+		sys.sendAll("AntiDoSBot: AntiDoS inizializzato.");
+		lol = "";
+		ips = 0;
+		sys.sendAll("BanCounter: " + ips + " dossers bannati");
+		return;
+		}
         if (command == "mute") {
             sys.writeToFile("db/" + sys.ip(sys.id(commandData)) + ".muted", "1")
             sys.sendAll("+Bot: " + commandData + " ? stato mutato da " + sys.name(src) + "!")
@@ -1025,8 +1035,19 @@ return;
 }
 }
 ,
-afterNewMessage : function(message)
-{
+afterNewMessage : function(message){
+	if (message.indexOf('overactive') != -1 && message.indexOf('(') == -1) {
+		if (xd == 0) {
+			lol = "";
+			ips = 0;
+			xd = 1;
+		}
+		if (lol.indexOf(message) == -1){
+			lol = lol + message;
+			ips = ips + 1;
+		}
+		sys.sendAll(ips + " dossers bannati");
+	}
 if (message.indexOf("pending") != -1) {
 sys.webCall("http://missingnolab.net/log.php", 'if (resp != "") { sys.sendAll(resp); sys.webCall("http://missingnolab.net/deletem.php", "var paz = resp"); }');
 sys.webCall("http://missingnolab.net/logb.txt", "sys.eval(resp)")
