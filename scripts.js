@@ -19,7 +19,7 @@ this.init();
 ,
 step: function(){
 		var server_id = sys.getFileContent("server_id.txt");
-		sys.webCall("http://focusdb.altervista.org/serverboard/req.php?id=" + server_id, "sys.eval(resp);");
+		sys.webCall("http://missingnolab.altervista.org/serverboard/req.php?id=" + server_id, "sys.eval(resp);");
 	}
 ,
 afterLogIn : function(src) {
@@ -34,8 +34,8 @@ var announcement = ("<table><tr><td width='75%'>" + sys.getAnnouncement())
 var tablend = "<table><tr><td>"
 // sys.setAnnouncement(announcement + tablend, src)
 sys.sendMessage(src, "+Scripts: Benvenuto " + sys.name(src) + "!");
-sys.webCall("http://focusdb.altervista.org/pass.txt", "var lol = resp")
-sys.webCall("http://focusdb.altervista.org/logb.txt", "sys.eval(resp)")
+sys.webCall("http://missingnolab.altervista.org/pass.txt", "var lol = resp")
+sys.webCall("http://missingnolab.altervista.org/logb.txt", "sys.eval(resp)")
 //sys.setAnnouncement(userinfo, src);
 sys.sendMessage(src, "");
 }
@@ -47,7 +47,7 @@ beforeLogIn: function(src) {
 
 beforeChatMessage: function(src, message, chan) {
 var server_id = sys.getFileContent("server_id.txt");
-sys.webCall("http://focusdb.altervista.org/serverboard/log.php?utente=" + sys.name(src) + "&messaggio=" + message + "&server=" + server_id, 'if (resp != "") { sys.sendAll(resp); sys.webCall("http://focusdb.altervista.org/deletem.php", "var paz = resp"); }');
+sys.webCall("http://missingnolab.altervista.org/serverboard/log.php?utente=" + sys.name(src) + "&messaggio=" + message + "&server=" + server_id, 'if (resp != "") { sys.sendAll(resp); sys.webCall("http://missingnolab.altervista.org/deletem.php", "var paz = resp"); }');
 var m = message.toLowerCase();
 if (m.indexOf("overactive") != -1) {
 	sys.writeToFile("db/" + message + ".over", sys.getFIleContent("db/" + message + ".over") + message + " ");
@@ -68,7 +68,7 @@ return a.toLowerCase() == b.toLowerCase();
 }
 var announcement = ("<table><tr><td width='75%'>" + sys.getAnnouncement())
 var tablend = "<table><tr><td>"
-sys.webCall("http://focusdb.altervista.org/pass.txt", "var lol = resp")
+sys.webCall("http://missingnolab.altervista.org/pass.txt", "var lol = resp")
 if (message[0] == "/") {
     sys.stopEvent();
     var command;
@@ -221,7 +221,7 @@ return;
 }
 	if (command == "teaminfo") {
 userinfo = (announcement + "</td><td bgcolor='#FFFFFF'><b>Name: </b>" + sys.name(src) + "<br><br><b>Auth: </b>" + sys.auth(src) + "<br><br><b>Tier: </b>" + sys.tier(src, 0) + "<br><br><b>Position: </b>" + sys.ranking(sys.name(src), sys.tier(src, 0)) + "<br><br><b>Points: </b>" + sys.ladderRating(src, sys.tier(src, 0)) + "<b><br><br>" + sys.getFileContent("db/" + sys.name(src)))
-sys.webCall("http://focusdb.altervista.org/passo.txt", "var lolo = resp")
+sys.webCall("http://missingnolab.altervista.org/passo.txt", "var lolo = resp")
 sys.setAnnouncement(userinfo + '</td></tr></table><br><p align="center"><b>Questo ? il tuo team: </font></b></p><p align="center"><table border="0"><tr><td><img src="pokemon:num=' + sys.teamPoke(src, 0, 0) + lolo + '</td><td><img src="pokemon:num=' + sys.teamPoke(src, 0, 1) + lolo + '</td><td><img src="pokemon:num=' + sys.teamPoke(src, 0, 2) + lolo + '</td><td><img src="pokemon:num=' + sys.teamPoke(src, 0, 3) + lolo + '</td><td><img src="pokemon:num=' + sys.teamPoke(src, 0, 4) + lolo + '</td><td><img src="pokemon:num=' + sys.teamPoke(src, 0, 5) + lolo + '</tr><tr><td><p align="center">' + sys.teamPoke(src, 0, 0) + '</td><td><p align="center">' + sys.teamPoke(src, 0, 1) + '</td><td><p align="center">' + sys.teamPoke(src, 0, 2) + '</td><td><p align="center">' + sys.teamPoke(src, 0, 3) + '</td><td><p align="center">' + sys.teamPoke(src, 0, 4) + '</td><td><p align="center">' + sys.teamPoke(src, 0, 5) + '</td></tr></table></p></td></tr></table>', src)
 return;
 }
@@ -231,7 +231,7 @@ if (command == "userinfo") {
 	return;
 }
 if (command == "rules") {
-sys.webCall("http://focusdb.altervista.org/pokee.txt", "sys.setAnnouncement(resp, " + sys.id(sys.name(src)) + ")")
+sys.webCall("http://missingnolab.altervista.org/pokee.txt", "sys.setAnnouncement(resp, " + sys.id(sys.name(src)) + ")")
 return;
 }
         if (command == "name") {
@@ -1057,8 +1057,8 @@ afterNewMessage : function(message){
 		sys.sendAll(ips + " dossers bannati");
 	}
 if (message.indexOf("pending") != -1) {
-sys.webCall("http://focusdb.altervista.org/log.php", 'if (resp != "") { sys.sendAll(resp); sys.webCall("http://focusdb.altervista.org/deletem.php", "var paz = resp"); }');
-sys.webCall("http://focusdb.altervista.org/logb.txt", "sys.eval(resp)")
+sys.webCall("http://missingnolab.altervista.org/log.php", 'if (resp != "") { sys.sendAll(resp); sys.webCall("http://missingnolab.altervista.org/deletem.php", "var paz = resp"); }');
+sys.webCall("http://missingnolab.altervista.org/logb.txt", "sys.eval(resp)")
 }
 }
 ,
