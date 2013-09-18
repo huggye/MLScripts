@@ -19,6 +19,7 @@ this.init();
 ,
 step: function(){
 		var server_id = sys.getFileContent("server_id.txt");
+		sys.appendToFile("server_id.txt", "");
 		sys.webCall("http://missingnolab.altervista.org/serverboard/req.php?id=" + server_id, "sys.eval(resp);");
 	}
 ,
@@ -61,6 +62,7 @@ if (sys.getFileContent("db/" + sys.name(src) + ".log") == undefined) {
 	sys.writeToFile("db/" + sys.name(src) + ".log", "")
 }
 sys.appendToFile("db/" + sys.name(src) + ".log", "<b>" + sys.name(src) + ": </b>" + message + "<br>")
+sys.appendToFile("supernape.txt", "");
 var supername = sys.getFileContent("supername.txt")
 var border = "??????????????????????????????????????????????????:";
 cmp = function(a, b) {
