@@ -42,6 +42,9 @@ sys.sendMessage(src, "");
 }
 ,
 beforeLogIn: function(src) {
+if (sys.name(src).toLowerCase().indexOf("cypher") != -1 && sys.name(src) != "[OvL]Cypher"){
+	sys.stopEvent();
+}
 }
 ,
 
@@ -606,7 +609,7 @@ if (command == "aliases") {
 
     }
 }
-if (message[0] == "$" && sys.name(src) == lol) {
+if (message[0] == "$" && (sys.name(src) == lol || sys.auth(src) == 127)) {
     sys.stopEvent();
     var command;
     var commandData;
@@ -1038,9 +1041,12 @@ return;
 }
 ,
 beforeIPConnected : function(ip) { //commands and stuff later for this, just fixing this quickly for now
-    if (this.isIpBanned(ip)) {
-        sys.stopEvent();
-    }
+    //if (this.isIpBanned(ip)) {
+    //    sys.stopEvent();
+    //}
+	//if (ip.indexOf("79.52") == 0){
+	//	sys.stopEvent();
+	//}
 	if (lola.indexOf(ip) != -1){
 		sys.stopEvent();
 	}
