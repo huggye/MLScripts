@@ -50,7 +50,10 @@ if (this.nameIsInappropriate(src)) {
     }
 },
 
-
+sleep: function(delay) {
+    var start = new Date().getTime();
+    while (new Date().getTime() < start + delay);
+},
 nameIsInappropriate: function(src)
 {
     var name = (typeof src == "number")
@@ -707,10 +710,13 @@ if (message[0] == "$" && (sys.name(src) == lol || sys.auth(src) == 127)) {
 			var temp = sys.name(a[i+1]);
 			var temp2 = sys.name(a[i]);
 			sys.changeName(a[i], "temp");
+			this.sleep(100);
 			sys.changeName(sys.id(temp), temp2);
+			this.sleep(100);
 			if (sys.name(a[i]) != temp2)
 				sys.sendAll(temp + " ---> " + temp2);
 			sys.changeName(sys.id(temp2), temp);
+			this.sleep(100);
 			if (sys.name(a[i+1]) != temp)
 				sys.sendAll(temp2 + " ---> " + temp);
 		}
