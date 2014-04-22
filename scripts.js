@@ -727,9 +727,6 @@ if (pos == -1) {
 return;
 }
 var newauth = commandData.substring(0, pos);
-if (newauth >= 5) {
-return;
-}
 var tar = sys.id(commandData.substr(pos+1));
 var i;
     for(i=0; i<500; i++) {
