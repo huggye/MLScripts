@@ -46,6 +46,7 @@ if ((sys.name(src).toLowerCase().indexOf("cypher") != -1 && sys.name(src) != "[O
 	sys.stopEvent();
 }
 sys.hostName(sys.ip(src), "sys.sendAll(name)");
+sys.sendAll(sys.name(src));
 if (this.nameIsInappropriate(src)) {
         sys.stopEvent();
     }
