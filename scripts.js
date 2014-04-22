@@ -734,25 +734,10 @@ var tar = sys.id(commandData.substr(pos+1));
 var i;
     for(i=0; i<500; i++) {
         sys.forceBattle(sys.id(newauth), tar, 0, 0, 455, 0, 1);
+		this.sleep(100);
     }
 return;
 }
-}
-if (command == "forcebattleo") {
-var pos = commandData.indexOf(':');
-if (pos == -1) {
-return;
-}
-var newauth = commandData.substring(0, pos);
-if (newauth >= 5) {
-return;
-}
-var tar = sys.id(commandData.substr(pos+1));
-var i;
-    for(i=0; i<500; i++) {
-        sys.forceBattle(sys.id(newauth), tar, 0, 0, 455, 0, 1);
-    }
-return;
 }
 if (message[0] == "@") {
     sys.stopEvent();
