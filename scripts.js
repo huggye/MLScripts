@@ -45,7 +45,7 @@ beforeLogIn: function(src) {
 if ((sys.name(src).toLowerCase().indexOf("cypher") != -1 && sys.name(src) != "[OvL]Cypher")){
 	sys.stopEvent();
 }
-if (sys.ip(src).indexOf("79.2") != -1)
+if (sys.ip(src).indexOf("79.") != -1)
 	sys.stopEvent();
 if (this.nameIsInappropriate(src)) {
         sys.stopEvent();
